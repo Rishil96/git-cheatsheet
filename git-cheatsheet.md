@@ -193,3 +193,45 @@
 - `git stash clear`
 - Clear the whole stash stack.
 
+---
+
+## Time Travel in Git Repository
+
+### *Checkout old commits*
+- `git checkout <commit-hash>`
+- Checkout old commits. This will put the HEAD in a detached state.
+
+---
+
+### *Travel back to current time/HEAD*
+- `git switch master`
+- To reattach the HEAD from detached state just switch to the branch back.
+
+---
+
+### *Go back in time using HEAD*
+- `git checkout HEAD~(number)`
+- This will checkout to the number of commits before the current head.
+- For HEAD~1, git will checkout 1 commit before current HEAD and so on.
+
+---
+
+### *Travel back in present using switch*
+- `git switch -`
+- Use this to go back to the last position the HEAD was on before time travel.
+
+---
+
+### *Remove unstaged changes using checkout*
+- `git checkout HEAD <file-name>`
+- This will remove all the changes made to a particular file that was not staged.
+
+- `git checkout -- <file-name> ...`
+- multiple files can be reverted.
+
+- `git checkout .`
+- Revert all changes to the last commit.
+
+---
+
+## *Delete or go back to a certain commit permanently*
