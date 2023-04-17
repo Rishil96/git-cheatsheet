@@ -58,3 +58,49 @@
 
 ## Branch Commands
 
+### *View all existing branches*
+- `git branch`
+- *Use -v to get (extra info)the tip of the branch i.e. last commit and its commit message.*
+
+---
+
+### *Create new branch*
+- `git branch <branch_name>`
+
+---
+
+### *Switch to a different branch*
+- `git switch <branch_name>`
+- new way
+- `git checkout <branch_name>`
+- older way
+
+---
+
+### *Switch and create a branch in one command*
+- `git switch -c <branch_name>`
+- -c => creates the branch in switch
+- `git checkout -b <branch_name>`
+- -b => creates the branch in checkout
+
+---
+
+### *Delete branch  (head should not be at the branch we want to delete)*
+- `git branch -d <branch_name>`
+- `git branch -D <branch_name>`
+- -D => force delete
+
+---
+
+### *Rename branch (head needs to be at the branch we want to rename)*
+- `git branch -m <new_branch_name>`
+- Be present in the branch we want to rename
+
+---
+
+### *Merge branch*
+- `git merge <branch_name>`
+- Be present in the branch where we want to merge and write the name of the branch to be merged to the current HEAD/branch
+
+---
+
