@@ -150,4 +150,46 @@
 
 ## Stash Changes to preserve history
 
+### *Saving changes without using commit*
+- `git stash`
+- `git stash save`
+- this will undo the changes made staged or unstaged after our last commit but it will remember it for us so we can revert back to them later.
+
+---
+
+### *Pop changes to working directory*
+- `git stash pop`
+- this will pop back the changes that we stashed to our working directory/repo.
+
+---
+
+### *Apply stashed changes without popping* 
+
+- `git stash apply`
+- this will pop back the changes but also keep the changes in the stash so we can pop/apply the changes in multiple branches.
+
+---
+
+### *View Stash Stack*
+
+- `git stash list`
+- View stash stack in case of multiple stashes are made.
+
+---
+
+### *Apply a specific stash*
+- `git stash apply stash@{id_number}`
+- To get a specific stash with its stash id.
+
+---
+
+### *Drop a specific stash*
+- `git stash drop stash@{id_number}`
+- To drop a stash from the stash stack.
+
+---
+
+### *Clear the whole stash*
+- `git stash clear`
+- Clear the whole stash stack.
 
