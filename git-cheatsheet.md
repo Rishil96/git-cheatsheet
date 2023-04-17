@@ -104,3 +104,50 @@
 
 ---
 
+## Check Difference using diff
+
+### *View Changes*
+- `git diff`
+- without additional options, lists all the changes in our working directory that are not staged for the next commit.
+- basically compares current unstaged changes in the repo with latest commit.
+
+---
+
+### *View changes since last commit*
+- `git diff HEAD`
+-  without additional options, lists all the changes in our working directory since the last commit (staged or not staged).
+
+---
+
+### *View staged changes since last commit*
+- `git diff --staged`
+- `git diff --cached`
+-  this will show the changes from the HEAD to the point where we added changes to the staging area.
+- basically compares the last commit to the current staged state of the repo.
+
+---
+
+### *View changes in a single file*
+- `git diff --staged <file_name> <file_name2> ...`
+- This will work with all the above diff commands to target just a single file or multiple files to view changes.
+
+---
+
+### *View changes accross branches*
+- `git diff branch1 branch2`
+- `git diff branch1..branch2 <file_name>`
+- Changes will be shown according to the order of the mentioned branched in the command. Can also specify file names at the end to check a specific file.
+
+---
+
+### *View changes between 2 commits*
+- `git diff commit1..commit2`
+- here commit 1 and 2 are hashes that uniquely identify a single commit.
+- `git diff commit1 commit2 <file_name>`
+- Can also specify file names at the end to check a specific file.
+
+---
+
+## Stash Changes to preserve history
+
+
