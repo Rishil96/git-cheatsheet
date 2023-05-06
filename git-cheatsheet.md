@@ -1,5 +1,22 @@
 # Git CheatSheet
 
+
+| Sr. No. | Topic Name | Description |
+| :--------: | :--------: | :--------: |
+| 1 | Basic Commands | Simple commands like add, commit, etc. |
+| 2 | Branch Commands | Commands related to branches. |
+| 3 | Git Diff | Checking difference between branches, commits, etc. |
+| 4 | Git Stash | Stash changes to avoid making bad commits to save progress. |
+| 5 | Time Travel | Go back in git commit history. |
+| 6 | Deleting Commits | Resetting the commit history. |
+| 7 | Git Remote | Working with basic remote commands. |
+| 8 | Git Remote Branches | Working with remote branches. |
+| 9 | Git Rebase | Rebasing branches to clean up commit history. |
+| 10 | Git Tags | Add release versions to important commits. |
+| 11 | Git Hash Objects | Working with hash objects. |
+| 12 | Git Reference Logs | Check reference logs to keep track of history locally. |
+
+
 ## Basic Commands
 
 ### *Configure Git Username and Password*
