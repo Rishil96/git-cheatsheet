@@ -407,3 +407,62 @@
 - `git push --tags`
 - Push all tags in local. Specify a remote if multiple remotes are configured.
 
+---
+
+## *Working with Hash Objects*
+
+- `git hash-object <file-name>`
+- Get hash of files/texts
+- Get hash of file (SHA-1)
+
+- `echo "text" | git hash-object --stdin`
+- Get hash of text. --stdin tells git to hash the input provided instead of hashing a file.
+
+- use -w flag with the above 2 commands to make GIT to store the hash and its value.
+
+- `git cat-file -p <hash-value>`
+- -p tells git to pretty print the output.
+- Retrieve the data stored in git objects folder, view the hash-value object contents.
+
+- `git cat-file -p <hash-value> > <file.txt>`
+- To add contents of a value stored in a hash to a file use
+
+- `git cat-file -p master^{tree}`
+- To view a tree
+- gives the tree for the most recent commit.
+
+- `git cat-file -t <hash-value>`
+- -t stands for type of the hash value object.
+- To view a type of git object based on hash value
+
+---
+
+## *Git Reference log*
+
+- `git reflog show HEAD`
+- will show the logs of HEAD similar to git log command for commits.	
+- Every log will have a relative name that can be used in another command the name would be like HEAD@{0}, it keeps changing after every log where the latest change becomes 0 and all past changes get incremented by 1.
+- Similar to prepending an item in a linked list or array.
+
+- `git checkout HEAD@{2}`
+- This will checkout to the point when the reference was logged.
+- This may keep us on the same commit if we didn't commit anything but just did something like switching branches and stuff
+
+
+- `git reflog master@{one.week.ago}`
+- Timed References in Reflog
+- View repo from 1 week ago.
+
+- `git checkout bugfix@{2.days.ago}`
+- Checkout the repo from 2 days ago
+
+- `git diff main@{0} main@{yesterday}`
+- Check difference between the latest log and yesterday
+
+
+## *Configure alias using cmd*
+
+- `git config --global alias.alias-name git-command`
+- alias name is the shortcut and git-command is the command we want to make a shortcut for.
+
+---
