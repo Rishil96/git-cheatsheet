@@ -335,4 +335,27 @@
 - Shorter command that works if origin is our remote name which is default and our current branch tracking is configured to a remote branch.
 - E.G. if we are on master branch, then using "git pull" will be like "git pull origin master", it will use the remote branch that is linked to our current branch where our HEAD is.
 
+---
 
+## *Git Rebase*
+
+- `git switch <feature-name>`
+- `git rebase <master-branch>`
+- Always switch to the feature branch that we want to rebase and then use rebase using the main/master branch so the current HEAD of master becomes the base of the feature.
+
+- Merge conflict can occur while rebasing and we can either abort or fix the conflicts and continue to rebase.
+
+- Abort rebase
+- `git rebase --abort`
+- Goes back to the original branch before rebase
+
+- Continue rebase
+- `git add .`
+- Add the fixed conflicts before continuing the rebase
+- `git rebase --continue`
+- After fixing the conflicts and staging it, use continue to finish the rebase.
+
+- `git rebase -i HEAD~<number of commits to go back>`
+- Interactive Rebase											
+- After this command, in the editor use the commands provided to make changes to the commit and project history according to our liking.
+- Check notes for the various options to choose from.
