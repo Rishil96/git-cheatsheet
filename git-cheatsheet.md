@@ -3,20 +3,23 @@
 
 | Sr. No. | Topic Name | Description |
 | :--------: | :--------: | :--------: |
-| 1 | Basic Commands | Simple commands like add, commit, etc. |
-| 2 | Branch Commands | Commands related to branches. |
-| 3 | Git Diff | Checking difference between branches, commits, etc. |
-| 4 | Git Stash | Stash changes to avoid making bad commits to save progress. |
-| 5 | Time Travel | Go back in git commit history. |
-| 6 | Deleting Commits | Resetting the commit history. |
-| 7 | Git Remote | Working with basic remote commands. |
-| 8 | Git Remote Branches | Working with remote branches. |
-| 9 | Git Rebase | Rebasing branches to clean up commit history. |
-| 10 | Git Tags | Add release versions to important commits. |
-| 11 | Git Hash Objects | Working with hash objects. |
-| 12 | Git Reference Logs | Check reference logs to keep track of history locally. |
+| 1 | [Basic Commands](#basic-command) | Simple commands like add, commit, etc. |
+| 2 | [Branch Commands](#branch-command) | Commands related to branches. |
+| 3 | [Git Diff](#diff) | Checking difference between branches, commits, etc. |
+| 4 | [Git Stash](#stash) | Stash changes to avoid making bad commits to save progress. |
+| 5 | [Time Travel](#time-travel) | Go back in git commit history. |
+| 6 | [Deleting Commits](#delete-stuff) | Resetting the commit history. |
+| 7 | [Git Remote](#remote) | Working with basic remote commands. |
+| 8 | [Git Remote Branches](#remote-branch) | Working with remote branches. |
+| 9 | [Git Rebase](#rebase) | Rebasing branches to clean up commit history. |
+| 10 | [Git Tags](#tags) | Add release versions to important commits. |
+| 11 | [Git Hash Objects](#hash-obj) | Working with hash objects. |
+| 12 | [Git Reference Logs](#reflog) | Check reference logs to keep track of history locally. |
+| 13 | [Git Alias](#alias) | Create alias for Git commands. |
 
+---
 
+<span id="basic-command"></span>
 ## Basic Commands
 
 ### *Configure Git Username and Password*
@@ -73,6 +76,7 @@
 
 ---
 
+<span id="branch-command"></span>
 ## Branch Commands
 
 ### *View all existing branches*
@@ -121,6 +125,7 @@
 
 ---
 
+<span id="diff"></span>
 ## Check Difference using diff
 
 ### *View Changes*
@@ -165,6 +170,7 @@
 
 ---
 
+<span id="stash"></span>
 ## Stash Changes to preserve history
 
 ### *Saving changes without using commit*
@@ -212,6 +218,7 @@
 
 ---
 
+<span id="time-travel"></span>
 ## Time Travel in Git Repository
 
 ### *Checkout old commits*
@@ -251,17 +258,24 @@
 
 ---
 
+<span id="delete-stuff"></span>
 ## *Delete or go back to a certain commit permanently*
 
 - `git restore <file-name>`
 - This restores the file to its previous commit removing the unstaged changes.
 
+---
+
 - `git restore --source HEAD~<number> <file-name>`
 - number : number of commits to go back from HEAD. and which file we want to.
 - restore to a previous commit.
 
+---
+
 - `git restore --staged <file-name>`
 - This will remove the mentioned file from the staging area.
+
+---
 
 - `git reset <commit-hash>`
 - Reset the repo to an old commit
@@ -269,35 +283,49 @@
 - It will put the changes that were reset in an unstaged state so we can still use the changes maybe in another branch or simply remove it. 
 - It will give a chance to us to see if there is anything useful in the commits we just reset.
 
+---
+
 - `git reset --hard <commit-hash>`
 - This will undo the commits and the changes. Every change made after the commit hash we mentioned in the command will be removed completely with the commits by git.
+
+---
 
 - `git revert <commit-hash>`
 - This will undo the commits till the mentioned commit hash. revert will create a new commit in which the changes will be undone. This will preserve the history of the commits we reverted so it can be restored in an unlikely scenario.
 
 ---
 
+<span id="remote"></span>
 ## *Basic Commands for Remote Repository* 
 
 - `ls -al ~/.ssh`
 - Check if SSH is configured
 
+---
+
 - `git remote -v`
 - Check if we have a remote for our local repo
+
+---
 
 - `git remote add <remote-name> <remote-url>`
 - Add remote using url to a local git repo
 - Remote name should be origin by convention, and URL is the url of the GitHub remote repo that we create. 
 - This command will link the remote to our local repo.
 
+---
+
 - `git remote rename <old-name> <new-name>`
 - Rename remote name
+
+---
 
 - `git remote remove <remote-name>`
 - Remove remote from local repo
 
 ---
 
+<span id="remote-branch"></span>
 ## *Basic Push, Pull and Fetch remote branches*
 
 ### Push
@@ -307,10 +335,12 @@
 - Remote is usually origin, branch name is the one branch that we wish to push. When we push for the first time, usually the branch won't be present on remote so git push will create the branch at remote and connect the local branch to the remote branch. 
 - So the next time we push, it would push it to the remote branch that we created with the first push.	
 
+---
 
 - `git push <remote> <local-branch-name>:<remote-branch-name>`
 - Push a local branch to a remote branch with different name
 
+---
 
 - `git push -u origin <branch-name>`
 - `git push --set-upstream origin <branch-name>`
@@ -318,14 +348,20 @@
 - This sets an upstream to a branch we are pushing. Think of this as linking our local branch to a branch on GitHub. 
 - Once branched are linked, Git will remember this link and it will allow us to use just "git push" from next time instead of specifying branch name everytime. 
 
+---
+
 - `git push -u origin <local-branch>:<remote-branch>`
 - Set upstream to a branch remotely with different name
 - This again links the local branch to the remote branch but with different name.
+
+---
 
 ### Check link of branch to remote branch
 
 - `git branch -r`
 - Check remote branch tracking reference
+
+---
 
 ### Checkout from remote branch
 
@@ -335,6 +371,8 @@
 - `git checkout --track <remote-name>/<remote-branch-name>`
 - Old way 
 
+---
+
 ### Fetch
 
 - Fetch changes others have made on remote without merging it to our local repo
@@ -342,6 +380,8 @@
 - `git fetch <remote-name> <branch-name>`
 - If we want to fetch just a single branch
 - After fetch we can checkout the remote branch like git checkout origin/master but our local master will remain untouched.
+
+---
 
 ### Pull
 
@@ -354,23 +394,32 @@
 
 ---
 
+<span id="rebase"></span>
 ## *Git Rebase*
 
 - `git switch <feature-name>`
 - `git rebase <master-branch>`
 - Always switch to the feature branch that we want to rebase and then use rebase using the main/master branch so the current HEAD of master becomes the base of the feature.
 
+---
+
 - Merge conflict can occur while rebasing and we can either abort or fix the conflicts and continue to rebase.
+
+---
 
 - Abort rebase
 - `git rebase --abort`
 - Goes back to the original branch before rebase
+
+---
 
 - Continue rebase
 - `git add .`
 - Add the fixed conflicts before continuing the rebase
 - `git rebase --continue`
 - After fixing the conflicts and staging it, use continue to finish the rebase.
+
+---
 
 - `git rebase -i HEAD~<number of commits to go back>`
 - Interactive Rebase											
@@ -379,6 +428,7 @@
 
 ---
 
+<span id="tags"></span>
 ## *Git Tags*
 
 - `git tag`
@@ -391,9 +441,13 @@
 - Use some pattern to find the type of tags you are searching for E.g "v2*". 
 - Here pattern means start with v2 and * means 0 or more of any characters following after v2.
 
+---
+
 - `git checkout <tag>`
 - Checkout a tag
 - Tag refers to a particular commit in the past so it is the same as using a commit hash to checkout a past commit. Puts us in detached HEAD state.
+
+---
 
 - `git tag <tag-name>`
 - Create a lightweight tag
@@ -402,8 +456,12 @@
 - Create an annotated tag
 - Opens an editor for us to provide additional details about the release.
 
+---
+
 - `git show <tag-name>`
 - View details of the annotated tag
+
+---
 
 - `git tag <tag-name> <commit-hash>`
 - For lightweight, tagging previous commits
@@ -414,8 +472,12 @@
 - `git tag -f <existing-tag-name> <new-commit-hash>`
 - Forcefully point an already existing tag to a different commit
 
+---
+
 - `git tag -d <tag-name>`
 - Delete a tag
+
+---
 
 - `git push origin <tag-name>`
 - Pushing tags to remote
@@ -426,6 +488,7 @@
 
 ---
 
+<span id="hash-obj"></span>
 ## *Working with Hash Objects*
 
 - `git hash-object <file-name>`
@@ -437,12 +500,18 @@
 
 - use -w flag with the above 2 commands to make GIT to store the hash and its value.
 
+---
+
 - `git cat-file -p <hash-value>`
 - -p tells git to pretty print the output.
 - Retrieve the data stored in git objects folder, view the hash-value object contents.
 
+---
+
 - `git cat-file -p <hash-value> > <file.txt>`
 - To add contents of a value stored in a hash to a file use
+
+---
 
 - `git cat-file -p master^{tree}`
 - To view a tree
@@ -454,6 +523,7 @@
 
 ---
 
+<span id="reflog"></span>
 ## *Git Reference log*
 
 - `git reflog show HEAD`
@@ -461,10 +531,13 @@
 - Every log will have a relative name that can be used in another command the name would be like HEAD@{0}, it keeps changing after every log where the latest change becomes 0 and all past changes get incremented by 1.
 - Similar to prepending an item in a linked list or array.
 
+---
+
 - `git checkout HEAD@{2}`
 - This will checkout to the point when the reference was logged.
 - This may keep us on the same commit if we didn't commit anything but just did something like switching branches and stuff
 
+---
 
 - `git reflog master@{one.week.ago}`
 - Timed References in Reflog
@@ -476,7 +549,9 @@
 - `git diff main@{0} main@{yesterday}`
 - Check difference between the latest log and yesterday
 
+---
 
+<span id="alias"></span>
 ## *Configure alias using cmd*
 
 - `git config --global alias.alias-name git-command`
