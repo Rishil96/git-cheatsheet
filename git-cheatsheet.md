@@ -281,3 +281,58 @@
 
 ---
 
+## *Basic Push, Pull and Fetch remote branches*
+
+### Push
+
+- `git push <remote-name> <branch-name>`
+- Push changes to remote
+- Remote is usually origin, branch name is the one branch that we wish to push. When we push for the first time, usually the branch won't be present on remote so git push will create the branch at remote and connect the local branch to the remote branch. 
+- So the next time we push, it would push it to the remote branch that we created with the first push.	
+
+
+- `git push <remote> <local-branch-name>:<remote-branch-name>`
+- Push a local branch to a remote branch with different name
+
+
+- `git push -u origin <branch-name>`
+- `git push --set-upstream origin <branch-name>`
+- Create a link between local and remote branch using -u
+- This sets an upstream to a branch we are pushing. Think of this as linking our local branch to a branch on GitHub. 
+- Once branched are linked, Git will remember this link and it will allow us to use just "git push" from next time instead of specifying branch name everytime. 
+
+- `git push -u origin <local-branch>:<remote-branch>`
+- Set upstream to a branch remotely with different name
+- This again links the local branch to the remote branch but with different name.
+
+### Check link of branch to remote branch
+
+- `git branch -r`
+- Check remote branch tracking reference
+
+### Checkout from remote branch
+
+- To add a branch that is available on remote repo but not locally simply use:-
+- `git switch <remote-branch-name>`
+- New way
+- `git checkout --track <remote-name>/<remote-branch-name>`
+- Old way 
+
+### Fetch
+
+- Fetch changes others have made on remote without merging it to our local repo
+- `git fetch <remote-name>`
+- `git fetch <remote-name> <branch-name>`
+- If we want to fetch just a single branch
+- After fetch we can checkout the remote branch like git checkout origin/master but our local master will remain untouched.
+
+### Pull
+
+- `git pull <remote> <branch-name>`
+- Pull changes from remote
+- Pulls/downloads the changes from remote and gets merged into our local.
+- `git pull`
+- Shorter command that works if origin is our remote name which is default and our current branch tracking is configured to a remote branch.
+- E.G. if we are on master branch, then using "git pull" will be like "git pull origin master", it will use the remote branch that is linked to our current branch where our HEAD is.
+
+
