@@ -257,3 +257,27 @@
 
 - `git revert <commit-hash>`
 - This will undo the commits till the mentioned commit hash. revert will create a new commit in which the changes will be undone. This will preserve the history of the commits we reverted so it can be restored in an unlikely scenario.
+
+---
+
+## *Basic Commands for Remote Repository* 
+
+- `ls -al ~/.ssh`
+- Check if SSH is configured
+
+- `git remote -v`
+- Check if we have a remote for our local repo
+
+- `git remote add <remote-name> <remote-url>`
+- Add remote using url to a local git repo
+- Remote name should be origin by convention, and URL is the url of the GitHub remote repo that we create. 
+- This command will link the remote to our local repo.
+
+- `git remote rename <old-name> <new-name>`
+- Rename remote name
+
+- `git remote remove <remote-name>`
+- Remove remote from local repo
+
+---
+
