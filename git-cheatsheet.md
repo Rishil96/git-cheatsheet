@@ -235,3 +235,25 @@
 ---
 
 ## *Delete or go back to a certain commit permanently*
+
+- `git restore <file-name>`
+- This restores the file to its previous commit removing the unstaged changes.
+
+- `git restore --source HEAD~<number> <file-name>`
+- number : number of commits to go back from HEAD. and which file we want to.
+- restore to a previous commit.
+
+- `git restore --staged <file-name>`
+- This will remove the mentioned file from the staging area.
+
+- `git reset <commit-hash>`
+- Reset the repo to an old commit
+- This will remove the commits from the git history but the changes will still be there. 
+- It will put the changes that were reset in an unstaged state so we can still use the changes maybe in another branch or simply remove it. 
+- It will give a chance to us to see if there is anything useful in the commits we just reset.
+
+- `git reset --hard <commit-hash>`
+- This will undo the commits and the changes. Every change made after the commit hash we mentioned in the command will be removed completely with the commits by git.
+
+- `git revert <commit-hash>`
+- This will undo the commits till the mentioned commit hash. revert will create a new commit in which the changes will be undone. This will preserve the history of the commits we reverted so it can be restored in an unlikely scenario.
