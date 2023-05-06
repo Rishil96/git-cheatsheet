@@ -359,3 +359,51 @@
 - Interactive Rebase											
 - After this command, in the editor use the commands provided to make changes to the commit and project history according to our liking.
 - Check notes for the various options to choose from.
+
+---
+
+## *Git Tags*
+
+- `git tag`
+- View tags
+- List all the tags in the current repository
+- `git tag -l`
+- Implicit way to do the same as above
+
+- `git tag -l "some wildcard pattern"`
+- Use some pattern to find the type of tags you are searching for E.g "v2*". 
+- Here pattern means start with v2 and * means 0 or more of any characters following after v2.
+
+- `git checkout <tag>`
+- Checkout a tag
+- Tag refers to a particular commit in the past so it is the same as using a commit hash to checkout a past commit. Puts us in detached HEAD state.
+
+- `git tag <tag-name>`
+- Create a lightweight tag
+
+- `git tag -a <tag-name>`
+- Create an annotated tag
+- Opens an editor for us to provide additional details about the release.
+
+- `git show <tag-name>`
+- View details of the annotated tag
+
+- `git tag <tag-name> <commit-hash>`
+- For lightweight, tagging previous commits
+
+- `git tag -a <tag-name> <commit-hash>`
+- For annotated, tagging previous commits
+
+- `git tag -f <existing-tag-name> <new-commit-hash>`
+- Forcefully point an already existing tag to a different commit
+
+- `git tag -d <tag-name>`
+- Delete a tag
+
+- `git push origin <tag-name>`
+- Pushing tags to remote
+- Push a single tag.
+
+- `git push --tags`
+- Push all tags in local. Specify a remote if multiple remotes are configured.
+
