@@ -16,6 +16,7 @@
 | 11 | [Git Hash Objects](#hash-obj) | Working with hash objects. |
 | 12 | [Git Reference Logs](#reflog) | Check reference logs to keep track of history locally. |
 | 13 | [Git Alias](#alias) | Create alias for Git commands. |
+| 14 | [Git GNUPG Setup (Sign your commits)](#sign-commit-setup) | Setup signed commits for Git and GitHub. |
 
 ---
 
@@ -556,5 +557,50 @@
 
 - `git config --global alias.alias-name git-command`
 - alias name is the shortcut and git-command is the command we want to make a shortcut for.
+
+---
+
+<span id="sign-commit-setup"></span>
+## *Git Sign Commits using GNUPG*
+
+1. Install GIT and GnuPG (we also get gpg.exe installed with GIT so GnuPG installation is not mandatory)
+
+---
+
+2. Generate a new private-public key pair using the following command `gpg --full-generate-key`
+
+---
+
+3. Use the default settings it should be fine, just add your name and email address correctly.
+
+---
+
+4. Export your public key using the following command `gpg --armor --export your_email@example.com > publickey.asc`. It will save our public key in this file. Private key is handled by GPG don't need to do anything to save it.
+
+---
+
+5. Add this public key contents to your GitHub by going to settings, SSH and GPG keys and create a new GPG key and paste the public key there and save it.
+
+---
+
+6. All that is left is to tell GIT to use GPG key to sign your commits which is done by modifying .gitconfig file that should be placed in your user folder.
+
+---
+
+7. First grab hold of the key ID of the GPG we generated using the command `gpg --list-keys`. Your ID will be something in the combination of numbers and capital letters. Copy it.
+
+---
+
+8. Now we have to change 2 things in .gitconfig file:-
+    
+    i. mention key id of GPG key in file using the command `git config 
+    --global user.signingkey your_key_id`
+
+    ii. Specify path to the gpg.exe file that will help to sign the commits using the command `git config --global gpg.program "C:\\path\\to\\gpg.exe"` 
+
+---
+
+
+9. After this, git will automatically sign your commits using GPG key.
 
 ---
