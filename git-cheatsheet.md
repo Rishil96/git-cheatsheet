@@ -16,7 +16,8 @@
 | 11 | [Git Hash Objects](#hash-obj) | Working with hash objects. |
 | 12 | [Git Reference Logs](#reflog) | Check reference logs to keep track of history locally. |
 | 13 | [Git Alias](#alias) | Create alias for Git commands. |
-| 14 | [Git GNUPG Setup (Sign your commits)](#sign-commit-setup) | Setup signed commits for Git and GitHub. |
+| 14 | [SSH Key Setup](#ssh) | SSH Setup for Git and GitHub. |
+| 15 | [Git GNUPG Setup (Sign your commits)](#sign-commit-setup) | Setup signed commits for Git and GitHub. |
 
 ---
 
@@ -559,6 +560,24 @@
 - alias name is the shortcut and git-command is the command we want to make a shortcut for.
 
 ---
+
+<span id="ssh"></span>
+## *SSH Key Setup*
+
+1. Generate key using `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`. It will create a .ssh folder in your working directory and will ask to setup a passphrase while using SSH. Set it up.
+
+2. After the first step, our private and public keys will be created in .ssh folder (default names id_rsa and id_rsa.pub). 
+
+3. Now start the ssh agent using `start-ssh-agent` and adding passphrase for verification.
+
+4. Ensure that the OpenSSH Authentication Agent is running for this to work (check services.msc for this).
+
+5. Add your SSH Key to the SSH agent using `ssh-add "ssh-private-key-path"`
+
+6. Finally add the public key i.e. **id_rsa.pub** in our GitHub SSH and GPG keys.
+
+7. After these steps, SSH configuration is done. 
+
 
 <span id="sign-commit-setup"></span>
 ## *Git Sign Commits using GNUPG*
