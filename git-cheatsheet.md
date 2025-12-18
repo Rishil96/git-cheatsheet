@@ -396,6 +396,14 @@
 
 ---
 
+### Remove link from remote branch
+
+- `git branch --unset-upstream`
+- Use this command to remove the link between local and remote branch.
+- This command will only work when we are present on that branch itself.
+
+---
+
 <span id="rebase"></span>
 ## *Git Rebase*
 
