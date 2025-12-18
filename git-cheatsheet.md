@@ -378,10 +378,14 @@
 ### Fetch
 
 - Fetch changes others have made on remote without merging it to our local repo
+- `git fetch`
+- If we want to fetch all the changes happens on remote and view it locally as compared to our local copy of the repo. This does not change the state of our branches locally.
 - `git fetch <remote-name>`
 - `git fetch <remote-name> <branch-name>`
 - If we want to fetch just a single branch
-- After fetch we can checkout the remote branch like git checkout origin/master but our local master will remain untouched.
+- This again just helps visualize how many commits are pushed on remote from what we have in our local copy but does not directly update our local branch.
+- `git fetch --prune`
+- This cleans up the local view of the remote by deleting references to branches that no longer exist there.
 
 ---
 
