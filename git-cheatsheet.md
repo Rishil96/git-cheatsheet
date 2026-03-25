@@ -18,6 +18,7 @@
 | 13 | [Git Alias](#alias) | Create alias for Git commands. |
 | 14 | [SSH Key Setup](#ssh) | SSH Setup for Git and GitHub. |
 | 15 | [Git GNUPG Setup (Sign your commits)](#sign-commit-setup) | Setup signed commits for Git and GitHub. |
+| 16 | [Git Submodule](#submodule) | Adding another git repository as submodule to the main repo. |
 
 ---
 
@@ -294,6 +295,7 @@
 
 - `git revert <commit-hash>`
 - This will undo the commits till the mentioned commit hash. revert will create a new commit in which the changes will be undone. This will preserve the history of the commits we reverted so it can be restored in an unlikely scenario.
+- Use `-n` flag in this command to only apply the changes to current working directory without committing it.
 
 ---
 
@@ -590,6 +592,7 @@
 
 7. After these steps, SSH configuration is done. 
 
+---
 
 <span id="sign-commit-setup"></span>
 ## *Git Sign Commits using GNUPG*
@@ -635,3 +638,8 @@
 9. After this, git will automatically sign your commits using GPG key.
 
 ---
+
+<span id="submodule"></span>
+## Git Submodule
+
+- 
